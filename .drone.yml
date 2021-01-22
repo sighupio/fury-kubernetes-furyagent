@@ -15,10 +15,29 @@ steps:
 
 ---
 kind: pipeline
-name: release
+name: policeman
 
 depends_on:
   - license
+
+steps:
+  - name: lint
+    image: quay.io/sighup/policeman
+    pull: always
+    environment:
+      # We need to disable this because it spots two issues.
+      # The terrascan version shipped with policeman, doesn't allow to dissable this false possitive issues.
+      # Re-enable it once the terrascan version is > 1.3.0
+      VALIDATE_TERRAFORM_TERRASCAN: "false"
+    depends_on:
+      - clone
+
+---
+kind: pipeline
+name: release
+
+depends_on:
+  - policeman
 
 trigger:
   ref:
