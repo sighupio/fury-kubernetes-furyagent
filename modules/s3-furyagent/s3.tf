@@ -5,6 +5,7 @@
  */
 
 resource "aws_s3_bucket" "main" {
+  #ts:skip=AWS.S3Bucket.DS.High.1043 We can not filter by user. This bucket is accessible to multiple users (robot and personal accounts)
   bucket = var.furyagent_bucket_name
   acl    = "private"
 

@@ -16,6 +16,7 @@ resource "aws_iam_policy_attachment" "main" {
 }
 
 resource "aws_iam_access_key" "main" {
+  #ts:skip=AWS.IamUser.IAM.High.0391 We need to create the access key to use it later on the ansible output
   user = aws_iam_user.main.name
 }
 
