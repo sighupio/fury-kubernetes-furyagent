@@ -36,5 +36,9 @@ resource "aws_s3_bucket" "main" {
     }
   }
 
-  tags = var.tags
+  tags = merge(
+    var.tags,
+    {
+      Name = var.furyagent_bucket_name
+    }
 }
