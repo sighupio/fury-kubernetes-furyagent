@@ -41,4 +41,5 @@ resource "aws_s3_bucket" "main" {
     {
       Name = var.furyagent_bucket_name
     }
+  )
 }
