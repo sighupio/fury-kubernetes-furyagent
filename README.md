@@ -16,7 +16,7 @@ You can click on each module to see its documentation.
 
 Find the following roles in this Fury Kubernetes furyagent katalog.
 
-- [furyagent](roles/furyagent): furyagent ansible role configure a target machine with furyagent. 
+- [furyagent](roles/furyagent): furyagent ansible role configure a target machine with furyagent.
   Furyagent is used on masters to refresh join token, on etcd and openvpn to manage server certificates
   and also on client side to manage openvpn client certificates.
 
