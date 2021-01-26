@@ -1,4 +1,6 @@
----
+# Copyright (c) 2020 SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
 
 furyagent_uri: https://github.com/sighupio/furyagent/releases/download/v0.2.1/furyagent-linux-amd64
 furyagent_configure_master: false
