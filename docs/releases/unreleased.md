@@ -50,5 +50,3 @@ module "s3-furyagent" {
   }
 }
 ```
-
-
