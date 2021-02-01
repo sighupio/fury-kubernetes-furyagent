@@ -7,6 +7,7 @@
 resource "aws_iam_user" "main" {
   name = "${var.furyagent_bucket_name}-furyagent-backup"
   path = "/"
+  tags = var.tags
 }
 
 resource "aws_iam_policy_attachment" "main" {
