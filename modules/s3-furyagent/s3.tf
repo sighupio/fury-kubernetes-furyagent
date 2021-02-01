@@ -36,9 +36,10 @@ resource "aws_s3_bucket" "main" {
     }
   }
 
-  tags = {
-    Name        = var.furyagent_bucket_name
-    Cluster     = var.cluster_name
-    Environment = var.environment
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = var.furyagent_bucket_name
+    }
+  )
 }

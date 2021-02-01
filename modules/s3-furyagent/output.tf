@@ -10,7 +10,7 @@ locals {
 
 aws_access_key: "${aws_iam_access_key.main.id}"
 aws_secret_key: "${aws_iam_access_key.main.secret}"
-aws_region: "${var.aws_region}"
+aws_region: "${aws_s3_bucket.main.region}"
 s3_bucket_name: "${var.furyagent_bucket_name}"
 EOF
 }

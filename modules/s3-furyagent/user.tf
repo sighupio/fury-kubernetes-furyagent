@@ -5,12 +5,13 @@
  */
 
 resource "aws_iam_user" "main" {
-  name = "${var.cluster_name}-${var.environment}-furyagent-backup"
+  name = "${var.furyagent_bucket_name}-furyagent-backup"
   path = "/"
+  tags = var.tags
 }
 
 resource "aws_iam_policy_attachment" "main" {
-  name       = "${var.cluster_name}-${var.environment}-furyagent-backup"
+  name       = "${var.furyagent_bucket_name}-furyagent-backup"
   users      = [aws_iam_user.main.name]
   policy_arn = aws_iam_policy.main.arn
 }
@@ -21,7 +22,7 @@ resource "aws_iam_access_key" "main" {
 }
 
 resource "aws_iam_policy" "main" {
-  name = "${var.cluster_name}-${var.environment}-furyagent-backup"
+  name = "${var.furyagent_bucket_name}-furyagent-backup"
 
   policy = <<EOF
 {
@@ -48,7 +49,7 @@ EOF
 }
 
 resource "aws_iam_policy" "join" {
-  name = "${var.cluster_name}-${var.environment}-furyagent-join"
+  name = "${var.furyagent_bucket_name}-furyagent-join"
 
   policy = <<EOF
 {

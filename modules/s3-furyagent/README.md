@@ -11,12 +11,10 @@ and to be provisioned.
 
 ## Inputs
 
-| Name                  | Description                                   | Type     | Default       | Required |
-| --------------------- | --------------------------------------------- | -------- | ------------- | :------: |
-| cluster_name          | Name of the cluster                           | `string` | n/a           |   yes    |
-| environment           | Name of the environment. Example: development | `string` | n/a           |   yes    |
-| furyagent_bucket_name | Name of the bucket to create                  | `string` | n/a           |   yes    |
-| aws_region            | Region where to create the bucket             | `string` | `"eu-west-1"` |    no    |
+| Name                  | Description                                   | Type         | Default       | Required |
+| --------------------- | --------------------------------------------- | ------------ | ------------- | :------: |
+| furyagent_bucket_name | Name of the bucket to create                  | `string`     | n/a           |   yes    |
+| tags                  | Custom tags to apply to resources             | `map(string)`| `{}`          |    no    |
 
 ## Outputs
 
@@ -28,13 +26,16 @@ and to be provisioned.
 | furyagent_ansible_secrets | Ansible variable file containing AWS credentials and bucket name |
 
 ## Usage
+
 ```hcl
 module "s3-furyagent" {
-    source                  = "../vendor/modules/s3-furyagent"
-    cluster_name            = "sighup"
-    environment             = "production"
-    aws_region              = "eu-west-1"
-    furyagent_bucket_name   = "sighup-backup"
+  source                  = "path/to/this/s3-furyagent"
+  furyagent_bucket_name   = "sighup-backup"
+  tags                    = {
+      "cluster" : "sighup",
+      "env"     : "production",
+      "any-key" : "any-value"
+  }
 }
 ```
 
