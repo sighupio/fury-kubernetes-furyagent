@@ -8,6 +8,7 @@ variable "furyagent_bucket_name" {
   type        = string
   description = "Name of the bucket to create"
 }
+
 variable "tags" {
   type        = map(string)
   description = "Custom tags to apply to resources"

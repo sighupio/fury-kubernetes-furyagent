@@ -23,9 +23,9 @@ $ furyagent <command>
 
 [`furyagent`]: https://github.com/sighupio/furyagent
 
-### Change the interface of terraform modules 
+### Change the interface of terraform modules
 
-Old interface: 
+Old interface:
 
 ```hcl
 module "s3-furyagent" {
